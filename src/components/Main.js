@@ -1,6 +1,6 @@
 import React from 'react'
 import Register from './Register/Register'
-import Cart from './Cart'
+import Cart from './Cart/Cart'
 
 const Main = () => {
   return (
