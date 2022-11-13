@@ -10,6 +10,7 @@ const CartItem = ({ data, handleAddQuantity, handleMinusQuantity }) => {
       className="product-container col col-12"
       data-count={product.quantity}
       data-price={product.price}
+      key={product.id}
     >
       <img className="img-container" src={product.img} alt="" />
       <div className="product-info">
