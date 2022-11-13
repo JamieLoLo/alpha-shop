@@ -3,14 +3,14 @@ import Address from './Address'
 import Shipping from './Shipping'
 import CreditCard from './CreditCard'
 
-const RegisterForm = () => {
+const RegisterForm = ({ currentStep }) => {
   return (
     <div>
       {/* register-form */}
       <section className="form-container col col-12">
-        <Address />
-        <Shipping />
-        <CreditCard />
+        {currentStep === 1 && <Address />}
+        {currentStep === 2 && <Shipping />}
+        {currentStep === 3 && <CreditCard />}
       </section>
     </div>
   )
