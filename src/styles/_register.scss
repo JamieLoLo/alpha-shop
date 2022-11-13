@@ -159,15 +159,6 @@ $phase-map: (
         }
       }
 
-      // form
-      form[data-phase='#{$phase}'] {
-        @if $index == $key {
-          display: flex;
-        } @else {
-          display: none;
-        }
-      }
-
       // progress-control
       & ~ section.progress-control-container {
         .button-group[data-phase='#{$phase}'] {
@@ -366,6 +357,7 @@ section.button-group {
       background-color: transparent;
       line-height: 20px;
       font-weight: 400;
+      width: 174px;
       color: #000000;
 
       > .svg {
