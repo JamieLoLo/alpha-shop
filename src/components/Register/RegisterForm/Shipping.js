@@ -3,8 +3,7 @@ import React from 'react'
 const Shipping = () => {
   return (
     <div>
-      {/* shipping phase */}
-      <form className="col col-12 d-none" data-phase="shipping">
+      <form className="col col-12" data-phase="shipping">
         <h3 className="form-title">運送方式</h3>
         <section className="form-body col col-12">
           <label className="radio-group col col-12" data-price="0">

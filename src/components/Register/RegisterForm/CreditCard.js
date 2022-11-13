@@ -4,7 +4,7 @@ const CreditCard = () => {
   return (
     <div>
       {/* credit-card phase */}
-      <form className="col col-12 d-none" data-phase="credit-card">
+      <form className="col col-12" data-phase="credit-card">
         <h3 className="form-title">付款資訊</h3>
         <section className="form-body col col-12">
           <div className="col col-12">
