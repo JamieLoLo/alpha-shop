@@ -3,7 +3,7 @@ import React from 'react'
 import { ReactComponent as MinusIcon } from '../icons/minus.svg'
 import { ReactComponent as PlusIcon } from '../icons/plus.svg'
 
-const CartItem = ({ data }) => {
+const CartItem = ({ data, handleAddQuantity, handleMinusQuantity }) => {
   // 使用 map() 打印出從父層傳來的產品資訊
   const productList = data.map((product) => (
     <div
@@ -16,9 +16,19 @@ const CartItem = ({ data }) => {
         <div className="product-name">{product.name}</div>
         <div className="product-control-container">
           <div className="product-control">
-            <MinusIcon className="product-action minus" />
+            <MinusIcon
+              className="product-action minus"
+              onClick={() => {
+                handleMinusQuantity(product.id)
+              }}
+            />
             <span className="product-count">{product.quantity}</span>
-            <PlusIcon className="product-action plus" />
+            <PlusIcon
+              className="product-action plus"
+              onClick={() => {
+                handleAddQuantity(product.id)
+              }}
+            />
           </div>
         </div>
         <div className="price">${product.price * product.quantity}</div>
