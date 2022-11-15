@@ -17,7 +17,6 @@ const CartItem = ({
       className="product-container col col-12"
       data-count={quantity}
       data-price={price}
-      key={id}
     >
       <img className="img-container" src={img} alt="" />
       <div className="product-info">

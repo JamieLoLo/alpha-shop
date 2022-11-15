@@ -65,6 +65,7 @@ const Cart = () => {
                 {...item}
                 handleAddQuantity={handleAddQuantity}
                 handleMinusQuantity={handleMinusQuantity}
+                key={item.id}
               />
             )
           })}
