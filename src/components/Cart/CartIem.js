@@ -3,40 +3,46 @@ import React from 'react'
 import { ReactComponent as MinusIcon } from '../icons/minus.svg'
 import { ReactComponent as PlusIcon } from '../icons/plus.svg'
 
-const CartItem = ({ data, handleAddQuantity, handleMinusQuantity }) => {
-  // 使用 map() 打印出從父層傳來的產品資訊
-  const productList = data.map((product) => (
+const CartItem = ({
+  id,
+  name,
+  img,
+  price,
+  quantity,
+  handleAddQuantity,
+  handleMinusQuantity,
+}) => {
+  return (
     <div
       className="product-container col col-12"
-      data-count={product.quantity}
-      data-price={product.price}
-      key={product.id}
+      data-count={quantity}
+      data-price={price}
+      key={id}
     >
-      <img className="img-container" src={product.img} alt="" />
+      <img className="img-container" src={img} alt="" />
       <div className="product-info">
-        <div className="product-name">{product.name}</div>
+        <div className="product-name">{name}</div>
         <div className="product-control-container">
           <div className="product-control">
             <MinusIcon
               className="product-action minus"
               onClick={() => {
-                handleMinusQuantity(product.id)
+                handleMinusQuantity(id)
               }}
             />
-            <span className="product-count">{product.quantity}</span>
+            <span className="product-count">{quantity}</span>
             <PlusIcon
               className="product-action plus"
               onClick={() => {
-                handleAddQuantity(product.id)
+                handleAddQuantity(id)
               }}
             />
           </div>
         </div>
-        <div className="price">${product.price * product.quantity}</div>
+        <div className="price">${price * quantity}</div>
       </div>
     </div>
-  ))
-  return productList
+  )
 }
 
 export default CartItem

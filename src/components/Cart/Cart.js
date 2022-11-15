@@ -19,7 +19,7 @@ const initialProductS = [
   },
 ]
 
-const Cart = (productID) => {
+const Cart = () => {
   const [products, setProducts] = useState(initialProductS)
 
   const handleAddQuantity = (productID) => {
@@ -59,11 +59,15 @@ const Cart = (productID) => {
         <h3 className="cart-title">購物籃</h3>
 
         <section className="product-list col col-12" data-total-price="0">
-          <CartItem
-            data={products}
-            handleAddQuantity={handleAddQuantity}
-            handleMinusQuantity={handleMinusQuantity}
-          />
+          {products.map((item) => {
+            return (
+              <CartItem
+                {...item}
+                handleAddQuantity={handleAddQuantity}
+                handleMinusQuantity={handleMinusQuantity}
+              />
+            )
+          })}
         </section>
 
         <section className="cart-info shipping col col-12">
