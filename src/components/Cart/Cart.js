@@ -1,26 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import CartItem from './CartIem'
-
-// 產品資訊
-const initialProductS = [
-  {
-    id: '1',
-    name: '貓咪罐罐',
-    img: 'https://picsum.photos/300/300?text=1',
-    price: 100,
-    quantity: 1,
-  },
-  {
-    id: '2',
-    name: '貓咪干干',
-    img: 'https://picsum.photos/300/300?text=2',
-    price: 200,
-    quantity: 1,
-  },
-]
+import { CartContext } from '../../contexts/CartContext'
+import { FormContext } from '../../contexts/FormContext'
 
 const Cart = () => {
-  const [products, setProducts] = useState(initialProductS)
+  const { products, setProducts } = useContext(CartContext)
 
   const handleAddQuantity = (productID) => {
     setProducts(
@@ -84,8 +68,15 @@ const Cart = () => {
 
 // 用來計算金額的函式
 const CalculateTotalPrice = ({ products }) => {
+  const { formData, setFormData } = useContext(FormContext)
+
   let totalPrice = 0
   products.map((p) => (totalPrice += p.quantity * p.price))
+  useEffect(() => {
+    let key = 'totalPrice'
+    setFormData({ ...formData, [key]: totalPrice })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [totalPrice])
 
   return (
     <section className="cart-info total col col-12">
