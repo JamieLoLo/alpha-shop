@@ -35,7 +35,7 @@ const Cart = () => {
     nextProducts = nextProducts.filter((p) => p.quantity > 0)
     setProducts(nextProducts)
   }
-
+  // console.log(products)
   return (
     <div className="col col-lg-5 col-sm-12">
       {/* cart  */}
